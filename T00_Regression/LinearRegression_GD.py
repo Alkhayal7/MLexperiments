@@ -58,10 +58,10 @@ while(iter < 1e4):
         plt.title('Cost function vs. iterations')
         plt.pause(0.1) # change pause time to accommodate for graphing speed
         
-        # check for convergence
-        if len(loss) > 2:
-            convg = abs(loss.pop() - loss.pop(-1)) / loss.pop()
-            if convg < lr*1e-3: break
+    # check for convergence
+    if len(loss) > 2:
+        convg = abs(loss[-1] - loss[-2]) / loss[-1]
+        if convg < lr*1e-3: break
 
 print(theta)
 # keep figures alive after execution
